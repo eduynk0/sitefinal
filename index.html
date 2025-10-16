@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hip Hop Anos 80 — Cultura, Músicas e Obras</title>
+  <meta name="description" content="Uma vitrine estilizada sobre o hip hop dos anos 80: músicas, autores, obras, estilos visuais e timeline." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== Reset ===== */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{font-family:'Roboto',system-ui,-apple-system,Segoe UI,Helvetica,Arial; background:#0b0b0b;color:#f1f1f1;line-height:1.4}
+
+    /* ===== Page layout ===== */
+    .container{max-width:1200px;margin:0 auto;padding:28px}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo .mark{font-family:'Permanent Marker';font-size:30px;color:#ffde59;text-shadow:0 3px 6px rgba(0,0,0,.6)}
+    .logo .sub{font-family:'Anton';letter-spacing:2px;color:#ffffff}
+
+    nav ul{display:flex;gap:12px;list-style:none}
+    nav a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:6px;transition:all .18s}
+    nav a:hover{background:rgba(255,255,255,.06);transform:translateY(-2px)}
+
+    /* ===== Hero ===== */
+    .hero{margin-top:18px;border-radius:14px;overflow:hidden;display:grid;grid-template-columns:1fr;align-items:center;background:
+      linear-gradient(90deg, rgba(9,9,9,0.9), rgba(6,6,6,0.9)),
+      radial-gradient(circle at 10% 20%, rgba(255,215,0,0.06), transparent 5%),
+      linear-gradient(120deg, rgba(255,0,102,0.06), transparent 20%);
+      padding:34px}
+
+    .hero-inner{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+    .hero-art{width:360px;height:202px;border-radius:10px;background:#111;background-image:
+      linear-gradient(45deg, rgba(255,255,255,0.03) 25%, transparent 25%),
+      linear-gradient(-45deg, rgba(255,255,255,0.03) 25%, transparent 25%);
+      background-size:40px 40px,40px 40px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .boombox{font-family:'Permanent Marker';font-size:22px;color:#ffd966}
+
+    .hero-content h1{font-family:'Anton';font-size:44px;letter-spacing:1px;margin-bottom:6px}
+    .hero-content p{max-width:780px;color:#ddd}
+
+    /* ===== Grid sections ===== */
+    .grid{display:grid;grid-template-columns:2fr 1fr;gap:22px;margin-top:22px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04)}
+
+    h2.section-title{font-family:'Permanent Marker';font-size:20px;margin-bottom:10px;color:#ffde59}
+
+    /* ===== Artists & Tracks list ===== */
+    .artists{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+    .artist{background:#0f0f0f;padding:12px;border-radius:10px;cursor:pointer;transition:transform .12s}
+    .artist:hover{transform:translateY(-6px)}
+    .artist h3{font-size:16px;margin-bottom:6px}
+    .artist p{font-size:13px;color:#cfcfcf}
+
+    /* ===== Timeline ===== */
+    .timeline{display:flex;flex-direction:column;gap:14px}
+    .time-item{display:flex;gap:12px;align-items:flex-start}
+    .time-bullet{width:56px;flex-shrink:0;text-align:center;font-weight:700}
+    .time-bullet .year{background:#ff0066;padding:8px 10px;border-radius:8px;display:inline-block}
+
+    /* ===== Sidebar ===== */
+    .search{display:flex;gap:8px;margin-bottom:12px}
+    .search input{flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+    .btn{padding:10px 12px;border-radius:8px;background:#ff0066;border:none;color:#fff;cursor:pointer;font-weight:700}
+
+    .playlist a{display:block;padding:8px;border-radius:8px;text-decoration:none;color:#fff;margin-bottom:8px;background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent)}
+
+    footer{margin-top:28px;padding:24px;text-align:center;color:#bbb;font-size:14px}
+
+    /* ===== Modal ===== */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,0.75);display:none;align-items:center;justify-content:center;padding:22px}
+    .modal.open{display:flex}
+    .modal-card{max-width:880px;width:100%;background:#0b0b0b;padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.05)}
+    .modal-card h3{font-family:'Anton';font-size:22px}
+    .close{background:transparent;border:2px solid rgba(255,255,255,0.06);padding:6px 10px;border-radius:8px;color:#fff;cursor:pointer}
+
+    /* ===== Responsive ===== */
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+      .hero-content h1{font-size:34px}
+      .hero-art{width:100%;height:160px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="mark">HIP HOP</div>
+        <div class="sub">Anos 80 — Cultura & Música</div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#history">História</a></li>
+          <li><a href="#musicas">Músicas</a></li>
+          <li><a href="#autores">Autores</a></li>
+          <li><a href="#timeline">Linha do Tempo</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero card" role="banner">
+      <div class="hero-inner">
+        <div class="hero-art">
+          <div class="boombox">BOOMBOX • GRAFFITI • BREAKDANCE</div>
+        </div>
+        <div class="hero-content">
+          <h1>O Boom do Hip Hop nos Anos 80</h1>
+          <p>Dos block parties no Bronx ao topo das paradas: nos anos 80 o hip hop tornou-se voz, dança e estilo. Aqui você encontra artistas, músicas e obras que moldaram o gênero — com contexto histórico, destaques de álbuns e curiosidades.</p>
+        </div>
+      </div>
+    </section>
+
+    <main class="grid">
+      <section class="card" id="history">
+        <h2 class="section-title">Breve História</h2>
+        <p>O hip hop nasceu na década de 1970, mas foi nos anos 80 que se consolidou como movimento cultural global. Elementos como o DJing, MCing (rap), breakdance e graffiti ganharam espaço nos média e nas rádios. O avanço tecnológico (samplers, drum machines) e a explosão de videoclipes ajudaram a popularizar o som por todo o mundo.</p>
+
+        <h3 style="margin-top:14px">Principais características dos anos 80</h3>
+        <ul style="margin-top:8px;margin-left:18px;color:#ddd">
+          <li>Uso de samples e loops (muitas vezes de discos de funk e soul).</li>
+          <li>MCs focando narrativa, rimas rimadas e performance ao vivo.</li>
+          <li>Produções mais cruas no início, evoluindo para beats mais limpos e pesados.</li>
+          <li>Visual: roupas largas, jaquetas, correntes, bonés e o estilo graffiti nas ruas.</li>
+        </ul>
+
+        <h3 style="margin-top:14px">Contexto social</h3>
+        <p>O hip hop foi e é uma voz das periferias — discutindo racismo, desigualdade e cotidiano urbano. Muitos artistas dos anos 80 usaram suas músicas para criticar problemas sociais, ao mesmo tempo em que celebravam o talento e a criatividade das comunidades.</p>
+      </section>
+
+      <aside class="card">
+        <div class="search">
+          <input id="searchInput" placeholder="Procurar artista, música ou álbum...">
+          <button class="btn" id="searchBtn">Buscar</button>
+        </div>
+
+        <div class="card playlist">
+          <h3 class="section-title">Playlists & Pistas</h3>
+          <a href="https://www.youtube.com/results?search_query=hip+hop+80s" target="_blank">Clássicos dos anos 80 — YouTube</a>
+          <a href="https://open.spotify.com/" target="_blank">Explore no Spotify</a>
+          <a href="#" id="surprise">Surpresa: escolha uma faixa</a>
+        </div>
+
+        <div style="margin-top:12px" class="card">
+          <h3 class="section-title">Destaques</h3>
+          <p><strong>Run-D.M.C.</strong> — pioneiros que trouxeram o rap ao rock e para a MTV.</p>
+          <p><strong>Beastie Boys</strong> — a mistura punk/hip hop que explodiu nos finais dos anos 80.</p>
+        </div>
+      </aside>
+
+      <section class="card" id="musicas">
+        <h2 class="section-title">Músicas e Obras Importantes</h2>
+        <p>Abaixo estão faixas e álbuns que marcaram os anos 80 no hip hop. Clique em um artista para ver mais e ouvir links externos.</p>
+
+        <div style="margin-top:12px" class="artists" id="artistsList">
+          <!-- Exemplo de cards de artista preenchidos por JS -->
+        </div>
+      </section>
+
+      <section class="card" id="autores">
+        <h2 class="section-title">Autores / Grupos</h2>
+        <p>Alguns nomes fundamentais do período (breve biografia e obra principal):</p>
+        <ul style="margin-top:10px;color:#ddd">
+          <li><strong>Grandmaster Flash & The Furious Five</strong> — pioneiros do DJing e do storytelling em "The Message" (1982).</li>
+          <li><strong>Run-D.M.C.</strong> — "Sucker M.C.'s" e "Walk This Way" (com Aerosmith) trouxeram o rap ao mainstream.</li>
+          <li><strong>Eric B. & Rakim</strong> — revolucionaram as técnicas de rima e o flow.</li>
+          <li><strong>LL Cool J</strong> — um dos primeiros MCs a ganhar grande apelo comercial e jovem.</li>
+          <li><strong>Beastie Boys</strong> — mistura de punk e rap, com o álbum "Licensed to Ill" (1986).</li>
+          <li><strong>Salt-N-Pepa</strong> — grupo feminino que ganhou espaço com força e atitude.</li>
+          <li><strong>Afrika Bambaataa</strong> — influente por levar a cultura hip hop para festas e por promover a união através da música.</li>
+          <li><strong>Sugarhill Gang</strong> — "Rapper's Delight" (1979) pavimentou o caminho para o sucesso do rap nos anos 80.</li>
+        </ul>
+      </section>
+
+      <section class="card" id="timeline">
+        <h2 class="section-title">Linha do Tempo (anos 80)</h2>
+        <div class="timeline">
+          <div class="time-item"><div class="time-bullet"><span class="year">1980</span></div><div><strong>Expansão inicial</strong> — O hip hop escala em festas, rádios locais e gravações independentes.</div></div>
+          <div class="time-item"><div class="time-bullet"><span class="year">1982</span></div><div><strong>"The Message" (Grandmaster Flash & The Furious Five)</strong> — marco social e sonoro.</div></div>
+          <div class="time-item"><div class="time-bullet"><span class="year">1984</span></div><div><strong>Primeiras aparições na MTV</strong> — vídeos e imagem ajudam a popularizar o gênero.</div></div>
+          <div class="time-item"><div class="time-bullet"><span class="year">1986</span></div><div><strong>"Licensed to Ill" (Beastie Boys)</strong> — crossover e grandes vendas.</div></div>
+          <div class="time-item"><div class="time-bullet"><span class="year">1988</span></div><div><strong>Álbuns e vozes politizadas</strong> — artistas como Public Enemy (final dos 80s) aparecem com mensagens mais fortes contra injustiças sociais.</div></div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>Feito com estilo old-school • Conteúdo ilustrativo sobre o hip hop dos anos 80</div>
+      <div style="margin-top:8px;font-size:13px;color:#999">Créditos: exemplos e resumos históricos; links externos apontam para plataformas e vídeos públicos.</div>
+    </footer>
+  </div>
+
+  <!-- Modal detalhado -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <h3 id="modalTitle">Artista</h3>
+        <button class="close" id="closeModal">Fechar</button>
+      </div>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    // Dados locais (pode ser expandido)
+    const ARTISTS = [
+      {
+        name: 'Grandmaster Flash & The Furious Five',
+        desc: 'Pioneiros do DJing e do rap social; "The Message" (1982) é um dos marcos do gênero.',
+        highlights: ['"The Message" (1982)', 'Introdução de técnicas de scratch e mixing']
+      },
+      {
+        name: 'Run-D.M.C.',
+        desc: 'Trio que quebrou barreiras entre rock e rap, visual icônico e presença na MTV.',
+        highlights: ['"Sucker M.C.\'s"', '"Walk This Way" (com Aerosmith)']
+      },
+      {
+        name: 'Beastie Boys',
+        desc: 'Mistura de punk e hip hop que alcançou grande sucesso comercial com "Licensed to Ill".',
+        highlights: ['"Licensed to Ill" (1986)', 'Rápido crossover para o mainstream']
+      },
+      {
+        name: 'Eric B. & Rakim',
+        desc: 'Influenciaram profundamente as técnicas de rima e a complexidade do flow.',
+        highlights: ['"Paid in Full" (1987)']
+      },
+      {
+        name: 'LL Cool J',
+        desc: 'Um dos primeiros MCs solo com grande apelo comercial e presença jovem.',
+        highlights: ['"I\'m Bad"', 'Baladas e faixas agressivas']
+      },
+      {
+        name: 'Salt-N-Pepa',
+        desc: 'Grupo feminino que conquistou espaço com atitude, estilo e letras diretas.',
+        highlights: ['"Push It"']
+      },
+      {
+        name: 'Afrika Bambaataa',
+        desc: 'Organizador de festas que ajudou a difundir a cultura hip hop e a eletrônica na cena.',
+        highlights: ['Contribuições para a cultura das block parties']
+      },
+      {
+        name: 'Sugarhill Gang',
+        desc: 'Com "Rapper\'s Delight" (1979) ajudaram a pavimentar a chegada do rap às rádios comerciais.',
+        highlights: ['"Rapper\'s Delight" (1979)']
+      }
+    ];
+
+    const artistsList = document.getElementById('artistsList');
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    const closeModal = document.getElementById('closeModal');
+
+    function renderArtists(list){
+      artistsList.innerHTML = '';
+      list.forEach((a, idx) => {
+        const el = document.createElement('div');
+        el.className = 'artist';
+        el.innerHTML = `<h3>${a.name}</h3><p>${a.desc}</p><small style="color:#aaa">Principais obras: ${a.highlights.join(', ')}</small>`;
+        el.addEventListener('click', () => openModal(a));
+        artistsList.appendChild(el);
+      });
+    }
+
+    function openModal(artist){
+      modalTitle.textContent = artist.name;
+      modalBody.innerHTML = `<p style="margin-bottom:8px">${artist.desc}</p><p><strong>Destaques:</strong></p><ul>${artist.highlights.map(h=>`<li>${h}</li>`).join('')}</ul><p style="margin-top:10px">Ouça no YouTube: <a href=\"https://www.youtube.com/results?search_query=${encodeURIComponent(artist.name)}\" target=\"_blank\">Pesquisar</a></p>`;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+    }
+
+    closeModal.addEventListener('click', () => { modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); });
+    modal.addEventListener('click', (e)=>{ if(e.target === modal) { modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); } });
+
+    // Busca simples
+    document.getElementById('searchBtn').addEventListener('click', ()=>{
+      const q = document.getElementById('searchInput').value.trim().toLowerCase();
+      if(!q) return renderArtists(ARTISTS);
+      const filtered = ARTISTS.filter(a => a.name.toLowerCase().includes(q) || a.desc.toLowerCase().includes(q) || a.highlights.join(' ').toLowerCase().includes(q));
+      renderArtists(filtered.length?filtered:[]);
+    });
+
+    document.getElementById('surprise').addEventListener('click', (e)=>{
+      e.preventDefault();
+      const idx = Math.floor(Math.random() * ARTISTS.length);
+      openModal(ARTISTS[idx]);
+    });
+
+    // Inicializa
+    renderArtists(ARTISTS);
+  </script>
+</body>
+</html>
