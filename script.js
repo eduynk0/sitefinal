@@ -105,12 +105,6 @@ let songs = [
         artist: 'By Rodery',
         song_path: 'music/music2.mp3',
         img_path: 'img/urban.png'
-    },
-    {
-        title: 'MMM3 ',
-        artist: 'By Mixkit 03',
-        song_path: 'music/m3.mp3',
-        img_path: './assets/images/m3.png'
     }
 
 ]
