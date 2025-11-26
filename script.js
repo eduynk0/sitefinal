@@ -105,7 +105,14 @@ let songs = [
         artist: 'By Rodery',
         song_path: 'music/music2.mp3',
         img_path: 'img/urban.png'
+    },
+  {
+        title: 'Jump Around',
+        artist: 'By House of Pain',
+        song_path: 'music/jump.mp3',
+        img_path: 'img/jump.jpg'
     }
+
 
 ]
 
